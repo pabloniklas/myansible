@@ -1,0 +1,16 @@
+# Para anular cowsay: export ANSIBLE_NOCOWS=1 
+
+- hosts: localhost
+  user: local
+  gather_facts: no
+
+  tasks:
+   - name: Ejecutar script1.sh 
+     shell: ./script1.sh
+     register: s1
+
+    # Print the shell task's stdout.
+   - debug: msg={{ s1.stdout }}
+
+    # Print all contents of the shell task's output.
+   #- debug: var=s1
